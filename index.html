@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TÍTULO DO PORTAL]</title>
+    
+    <!-- Metatags para SEO e Compartilhamento -->
+    <meta name="description" content="[FRASE DE APOIO EXPLICANDO OS 3 LUGARES PARA BAIXAR LIVROS]">
+    <meta name="theme-color" content="#080808">
+    
+    <!-- Open Graph (Prévia bonita ao compartilhar o link) -->
+    <meta property="og:title" content="[TÍTULO DO PORTAL]">
+    <meta property="og:description" content="[FRASE DE APOIO EXPLICANDO OS 3 LUGARES PARA BAIXAR LIVROS]">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[URL DO SEU SITE]">
+    
+    <!-- Fontes do Google: Playfair Display (Serifada Elegante) e Inter (Limpa para texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==============================================================
+           1. CONFIGURAÇÃO DE CORES (EDITE AQUI)
+           ============================================================== */
+        :root {
+            --fundo: #080808;       /* Fundo principal escuro */
+            --vermelho: #b30000;    /* Vermelho de destaque para bordas e botões */
+            --claro: #e6e6e6;       /* Cor do texto principal */
+            --cinza-texto: #a3a3a3; /* Cor da descrição e textos secundários */
+            
+            --cartao-bg: rgba(255, 255, 255, 0.02);
+            --cartao-borda: rgba(255, 255, 255, 0.08);
+            
+            --fonte-titulo: 'Playfair Display', serif;
+            --fonte-texto: 'Inter', sans-serif;
+        }
+
+        /* ==============================================================
+           2. RESET E BASE
+           ============================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fonte-texto);
+            background-color: var(--fundo);
+            color: var(--claro);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Névoa/brilho vermelho discreto no topo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% -10%, rgba(179, 0, 0, 0.12) 0%, transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ==============================================================
+           3. LAYOUT PRINCIPAL
+           ============================================================== */
+        .container {
+            width: 100%;
+            max-width: 540px; /* Mantém compacto e elegante no desktop */
+            padding: 48px 24px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        header {
+            text-align: center;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        h1 {
+            font-family: var(--fonte-titulo);
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: var(--claro);
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            color: var(--cinza-texto);
+            font-size: 1rem;
+        }
+
+        /* ==============================================================
+           4. CARTÕES DE DESTINO
+           ============================================================== */
+        .links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--cartao-bg);
+            border: 1px solid var(--cartao-borda);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            
+            /* Preparo para animação de entrada em cascata */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Atraso sequencial para cada cartão */
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+
+        .card:hover, .card:focus-within {
+            border-color: var(--vermelho);
+            background-color: rgba(179, 0, 0, 0.03);
+            box-shadow: 0 8px 30px rgba(179, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            font-family: var(--fonte-titulo);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--claro);
+        }
+
+        .card p {
+            color: var(--cinza-texto);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            /* Limita o texto a no máximo 3 linhas */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ==============================================================
+           5. BOTÕES
+           ============================================================== */
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: transparent;
+            color: var(--vermelho);
+            border: 1px solid var(--vermelho);
+            padding: 16px 20px; /* Área de toque ampla para mobile */
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: var(--vermelho);
+            color: var(--claro);
+            outline: none;
+        }
+
+        /* Acessibilidade para navegação por teclado */
+        .btn:focus-visible {
+            outline: 2px solid var(--claro);
+            outline-offset: 4px;
+        }
+
+        /* ==============================================================
+           6. RODAPÉ
+           ============================================================== */
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--cinza-texto);
+            font-size: 0.85rem;
+            
+            /* Animação suave para o final da página */
+            opacity: 0;
+            animation: fadeInFooter 1s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        /* ==============================================================
+           7. ANIMAÇÕES E ACESSIBILIDADE DE MOVIMENTO
+           ============================================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInFooter {
+            from { opacity: 0; }
+            to { opacity: 0.5; } /* Opacidade reduzida para ficar discreto */
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Remove animações caso o usuário tenha sensibilidade a movimento */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <!-- CABEÇALHO -->
+        <header>
+            <h1>[TÍTULO DO PORTAL]</h1>
+            <p>[FRASE DE APOIO EXPLICANDO OS 3 LUGARES PARA BAIXAR LIVROS]</p>
+        </header>
+
+        <!-- NAVEGAÇÃO / CARTÕES -->
+        <nav class="links-grid" aria-label="Destinos de download">
+            
+            <!-- CARTÃO 1 -->
+            <div class="card">
+                <h2>[ANNA'S ARCHIVE]</h2>
+                <p>[O maior repositório de arquivos e livros do mundo.]</p>
+                <!-- Os links abrem na mesma aba para não conflitar com in-app browsers -->
+                <a href="[https://pt.annas-archive.gl/]" class="btn" rel="noopener noreferrer">[Ir Para Anna's Archive]</a>
+            </div>
+
+            <!-- CARTÃO 2 -->
+            <div class="card">
+                <h2>[DRIVE DE POBRE]</h2>
+                <p>[Site brasileiro repleto de arquivos, desde conteúdo para ENEM, vestibular, concursos e muitos outros.]</p>
+                <a href="[https://drivedepobre.com/]" class="btn" rel="noopener noreferrer">[TEXTO DO BOTÃO 2]</a>
+            </div>
+
+            <!-- CARTÃO 3 -->
+            <div class="card">
+                <h2>[LIVROS DE DIREITO - TELEGRAM]</h2>
+                <p>[Um dos maiores grupos de compartilhamento de livros de Direito do Telegram, o grupo é Brasileiro e para entrar, é cobrada uma taxa de R$10,00 e o acesso é vitalício.]</p>
+                <a href="[https://t.me/livrosdedireitogratis]" class="btn" rel="noopener noreferrer">[TEXTO DO BOTÃO 3]</a>
+            </div>
+
+        </nav>
+    </main>
+
+    <!-- RODAPÉ DISCRETO -->
+    <footer>
+        <p>[TEXTO DO RODAPÉ]</p>
+    </footer>
+
+</body>
+</html>
