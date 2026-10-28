@@ -1,290 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>† NANA.RIP † | LIVROS</title>
-    
-    <!-- Metatags para SEO e Compartilhamento -->
-    <meta name="description" content="Bem-vinda, minha Corte. Nossos três refúgios para encontrar livros e materiais de estudo.">
-    <meta name="theme-color" content="#080808">
-    
-    <!-- Open Graph (Prévia bonita ao compartilhar o link) -->
-    <meta property="og:title" content="† NANA.RIP † | LIVROS">
-    <meta property="og:description" content="Bem-vinda, minha Corte. Nossos três refúgios para encontrar livros e materiais de estudo.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nanarip.github.io/baixelivrosaqui/">
-    
-    <!-- Fontes do Google: Playfair Display (Serifada Elegante) e Inter (Limpa para texto) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>† nana.rip † livros</title>
+<meta name="description" content="Bem-vindos, minha Corte. Três espaços para buscar livros e materiais de estudo.">
+<meta name="theme-color" content="#080808">
+<meta property="og:title" content="† nana.rip † livros">
+<meta property="og:description" content="Bem-vindos, minha Corte. Três espaços para buscar livros e materiais de estudo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanarip.github.io/baixelivrosaqui/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23080808'/%3E%3Ctext x='32' y='46' font-size='44' text-anchor='middle' fill='%23b30000' font-family='serif'%3E%E2%80%A0%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#080808;
+  --vermelho:#b30000;
+  --vermelho-vivo:#d11a1a;
+  --claro:#e8e3dc;
+  --apagado:#9d9892;
+  --linha:rgba(232,227,220,.12);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Hanken Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--fundo)}
+body{
+  font-family:var(--sans);color:var(--claro);line-height:1.6;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%,rgba(179,0,0,.16),transparent 70%),
+    radial-gradient(ellipse 120% 60% at 50% 120%,rgba(0,0,0,.9),transparent),
+    var(--fundo);
+}
+/* granulação sutil */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+main{width:100%;max-width:560px;padding:44px 22px 20px;flex:1;position:relative;z-index:1}
 
-    <style>
-        /* ==============================================================
-           1. CONFIGURAÇÃO DE CORES
-           ============================================================== */
-        :root {
-            --fundo: #080808;       /* Fundo principal escuro */
-            --vermelho: #b30000;    /* Vermelho de destaque para bordas e botões */
-            --claro: #e6e6e6;       /* Cor do texto principal */
-            --cinza-texto: #a3a3a3; /* Cor da descrição e textos secundários */
-            
-            --cartao-bg: rgba(255, 255, 255, 0.02);
-            --cartao-borda: rgba(255, 255, 255, 0.08);
-            
-            --fonte-titulo: 'Playfair Display', serif;
-            --fonte-texto: 'Inter', sans-serif;
-        }
+/* ---------- topo ---------- */
+header{text-align:center;margin-bottom:44px}
+.janela{width:132px;height:auto;display:block;margin:0 auto 22px;overflow:visible}
+.janela .vitral{fill:rgba(179,0,0,.10);stroke:var(--vermelho);stroke-width:1.2}
+.janela .trama{stroke:var(--vermelho);stroke-width:.8;opacity:.55;fill:none}
+.janela .cruz{fill:var(--claro);font-family:var(--serif);font-size:30px;text-anchor:middle}
+.janela .luz{animation:acender 2.4s ease-out both}
+h1{
+  font-family:var(--serif);font-weight:500;font-size:clamp(2.9rem,14vw,4.2rem);
+  line-height:1;letter-spacing:.01em;
+}
+h1 span{display:block;font-style:italic;font-size:.42em;color:var(--apagado);margin-top:.35em;letter-spacing:.06em}
+.intro{
+  font-family:var(--serif);font-size:1.28rem;line-height:1.5;color:var(--claro);
+  max-width:25em;margin:26px auto 0;opacity:.88;
+}
+.divisor{display:flex;align-items:center;gap:14px;margin:30px auto 0;max-width:240px;color:var(--vermelho);font-family:var(--serif)}
+.divisor::before,.divisor::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--vermelho))}
+.divisor::after{background:linear-gradient(270deg,transparent,var(--vermelho))}
 
-        /* ==============================================================
-           2. RESET E BASE
-           ============================================================== */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* ---------- destinos ---------- */
+.destinos{display:flex;flex-direction:column;gap:18px}
+.destino{
+  display:grid;grid-template-columns:56px 1fr;gap:4px 18px;
+  padding:24px 22px 22px;border:1px solid var(--linha);border-radius:3px;
+  background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.008));
+  color:inherit;text-decoration:none;position:relative;
+  transition:border-color .25s,background-color .25s;
+}
+.destino::before{ /* filete vermelho que marca o card ao interagir */
+  content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:2px;background:var(--vermelho);
+  transform:scaleY(0);transition:transform .3s ease;
+}
+.destino:hover,.destino:focus-visible{border-color:rgba(179,0,0,.6);background-color:rgba(179,0,0,.05)}
+.destino:hover::before,.destino:focus-visible::before{transform:scaleY(1)}
+.destino:focus-visible{outline:2px solid var(--claro);outline-offset:4px}
+.arco{grid-row:1 / span 2;width:56px;height:auto;align-self:start}
+.arco path.moldura{fill:none;stroke:var(--vermelho);stroke-width:1.3}
+.arco .tr{fill:none;stroke:var(--claro);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.destino h2{font-family:var(--serif);font-weight:600;font-size:1.55rem;line-height:1.15}
+.tag{font-size:.84rem;color:var(--vermelho-vivo);margin-top:2px}
+.destino p{grid-column:1 / -1;color:var(--apagado);font-size:.97rem;margin-top:14px;max-width:46ch}
+.ir{
+  grid-column:1 / -1;margin-top:20px;text-align:center;padding:14px 18px;border-radius:2px;
+  border:1px solid var(--vermelho);color:var(--claro);font-weight:500;font-size:.98rem;
+  background:rgba(179,0,0,.18);transition:background-color .25s;
+}
+.destino:hover .ir,.destino:focus-visible .ir{background:var(--vermelho)}
 
-        body {
-            font-family: var(--fonte-texto);
-            background-color: var(--fundo);
-            color: var(--claro);
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+footer{position:relative;z-index:1;text-align:center;padding:34px 24px 40px;font-family:var(--serif);color:var(--apagado);letter-spacing:.14em;font-size:.95rem}
 
-        /* Névoa/brilho vermelho discreto no topo */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle at 50% -10%, rgba(179, 0, 0, 0.12) 0%, transparent 60%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* ==============================================================
-           3. LAYOUT PRINCIPAL
-           ============================================================== */
-        .container {
-            width: 100%;
-            max-width: 540px; 
-            padding: 48px 24px 24px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        header {
-            text-align: center;
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        h1 {
-            font-family: var(--fonte-titulo);
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: var(--claro);
-            letter-spacing: 0.5px;
-        }
-
-        header p {
-            color: var(--cinza-texto);
-            font-size: 1rem;
-        }
-
-        /* ==============================================================
-           4. CARTÕES DE DESTINO
-           ============================================================== */
-        .links-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--cartao-bg);
-            border: 1px solid var(--cartao-borda);
-            border-radius: 12px;
-            padding: 28px 24px;
-            text-align: left;
-            transition: all 0.3s ease;
-            position: relative;
-            
-            /* Preparo para animação de entrada em cascata */
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Atraso sequencial para cada cartão */
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-
-        .card:hover, .card:focus-within {
-            border-color: var(--vermelho);
-            background-color: rgba(179, 0, 0, 0.03);
-            box-shadow: 0 8px 30px rgba(179, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .card h2 {
-            font-family: var(--fonte-titulo);
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            color: var(--claro);
-        }
-
-        .card p {
-            color: var(--cinza-texto);
-            font-size: 0.95rem;
-            margin-bottom: 24px;
-            /* Limita o texto a no máximo 5 linhas */
-            display: -webkit-box;
-            -webkit-line-clamp: 5; 
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* ==============================================================
-           5. BOTÕES
-           ============================================================== */
-        .btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: transparent;
-            color: var(--vermelho);
-            border: 1px solid var(--vermelho);
-            padding: 16px 20px; 
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s;
-            cursor: pointer;
-        }
-
-        .btn:hover, .btn:focus {
-            background-color: var(--vermelho);
-            color: var(--claro);
-            outline: none;
-        }
-
-        /* Acessibilidade para navegação por teclado */
-        .btn:focus-visible {
-            outline: 2px solid var(--claro);
-            outline-offset: 4px;
-        }
-
-        /* ==============================================================
-           6. RODAPÉ
-           ============================================================== */
-        footer {
-            text-align: center;
-            padding: 24px;
-            color: var(--cinza-texto);
-            font-size: 0.85rem;
-            font-family: var(--fonte-titulo);
-            letter-spacing: 1px;
-            
-            /* Animação suave para o final da página */
-            opacity: 0;
-            animation: fadeInFooter 1s ease forwards;
-            animation-delay: 0.6s;
-        }
-
-        /* ==============================================================
-           7. ANIMAÇÕES E ACESSIBILIDADE DE MOVIMENTO
-           ============================================================== */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInFooter {
-            from { opacity: 0; }
-            to { opacity: 0.5; }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Remove animações caso o usuário tenha sensibilidade a movimento */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
-        }
-    </style>
+@keyframes acender{0%{opacity:0}35%{opacity:.35}55%{opacity:.2}100%{opacity:1}}
+@media (min-width:600px){main{padding-top:64px}.destino{padding:28px 28px 26px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
+<main>
+  <header>
+    <svg class="janela" viewBox="0 0 120 170" role="img" aria-label="Janela gótica">
+      <g class="luz">
+        <path class="vitral" d="M10 168V70Q10 22 60 4Q110 22 110 70V168Z"/>
+        <path class="trama" d="M60 4V168M10 96H110M10 132H110"/>
+        <path class="trama" d="M34 168V96Q34 74 60 60M86 168V96Q86 74 60 60"/>
+        <text class="cruz" x="60" y="62">†</text>
+      </g>
+    </svg>
+    <h1>nana.rip<span>livros</span></h1>
+    <p class="intro">Bem-vindos, minha Corte. Separei três espaços para buscarmos conhecimento: leituras e materiais de estudo.</p>
+    <div class="divisor">†</div>
+  </header>
 
-    <main class="container">
-        
-        <!-- CABEÇALHO -->
-        <header>
-            <h1>† NANA.RIP † | LIVROS</h1>
-            <p>Bem vindos, minha Corte! Separei aqui três espaços para buscarmos conhecimento, contendo leituras e materiais de estudo.</p>
-        </header>
+  <nav class="destinos" aria-label="Destinos para baixar livros">
 
-        <!-- NAVEGAÇÃO / CARTÕES -->
-        <nav class="links-grid" aria-label="Destinos de download">
-            
-            <!-- CARTÃO 1 -->
-            <div class="card">
-                <h2>Anna's Archive</h2>
-                <p>A maior biblioteca livre da história. Um projeto focado em preservar o conhecimento, onde você pode buscar e baixar milhões de livros e artigos científicos para sempre, sem barreiras.</p>
-                <a href="https://pt.annas-archive.gl/" class="btn" rel="noopener noreferrer">Explorar o Anna's Archive</a>
-            </div>
+    <a class="destino" href="https://pt.annas-archive.gl/" rel="noopener noreferrer">
+      <svg class="arco" viewBox="0 0 40 52" aria-hidden="true">
+        <path class="moldura" d="M3 50V22Q3 7 20 2Q37 7 37 22V50Z"/>
+        <path class="tr" d="M12 40V22Q16 19 20 22Q24 19 28 22V40Q24 37 20 40Q16 37 12 40ZM20 22V40"/>
+      </svg>
+      <h2>Anna's Archive</h2>
+      <span class="tag">Biblioteca aberta</span>
+      <p>A maior biblioteca livre da história. Um projeto de preservação do conhecimento, onde você busca e baixa milhões de livros e artigos científicos, sem barreiras.</p>
+      <span class="ir">Explorar o Anna's Archive</span>
+    </a>
 
-            <!-- CARTÃO 2 -->
-            <div class="card">
-                <h2>Drive de Pobre</h2>
-                <p>Um acervo absurdo com mais de 1 milhão de arquivos. Tem pastas completas para ENEM, vestibulares, tecnologia, idiomas e muito mais. O melhor de tudo? É só pesquisar e baixar, sem precisar criar cadastro.</p>
-                <a href="https://drivedepobre.com/" class="btn" rel="noopener noreferrer">Garimpar no Drive de Pobre</a>
-            </div>
+    <a class="destino" href="https://drivedepobre.com/" rel="noopener noreferrer">
+      <svg class="arco" viewBox="0 0 40 52" aria-hidden="true">
+        <path class="moldura" d="M3 50V22Q3 7 20 2Q37 7 37 22V50Z"/>
+        <path class="tr" d="M11 27H18L20 30H29V41H11ZM11 33H29"/>
+      </svg>
+      <h2>Drive de Pobre</h2>
+      <span class="tag">Sem cadastro</span>
+      <p>Um acervo com mais de 1 milhão de arquivos. Há pastas completas de ENEM, vestibulares, tecnologia, idiomas e mais. É só pesquisar e baixar.</p>
+      <span class="ir">Garimpar no Drive de Pobre</span>
+    </a>
 
-            <!-- CARTÃO 3 -->
-            <div class="card">
-                <h2>Livros de Direito - Telegram</h2>
-                <p>A indicação de ouro para os estudantes de Direito da nossa Corte. Uma comunidade super ativa no Telegram com mais de 26 mil membros que se ajudam compartilhando PDFs diariamente. Tem uma taxa única de R$ 10, e o acesso ao grupo é vitalício.</p>
-                <a href="https://t.me/livrosdedireitogratis" class="btn" rel="noopener noreferrer">Entrar na Comunidade</a>
-            </div>
+    <a class="destino" href="https://t.me/livrosdedireitogratis" rel="noopener noreferrer">
+      <svg class="arco" viewBox="0 0 40 52" aria-hidden="true">
+        <path class="moldura" d="M3 50V22Q3 7 20 2Q37 7 37 22V50Z"/>
+        <path class="tr" d="M11 33L29 25L25 41L20 35L17 39L16 34ZM16 34L29 25"/>
+      </svg>
+      <h2>Livros de Direito</h2>
+      <span class="tag">Comunidade no Telegram · R$ 10 únicos</span>
+      <p>A indicação para os estudantes de Direito da nossa Corte. Mais de 26 mil membros compartilham PDFs todos os dias. A taxa é única, de R$ 10, e o acesso ao grupo é vitalício.</p>
+      <span class="ir">Entrar na comunidade</span>
+    </a>
 
-        </nav>
-    </main>
-
-    <!-- RODAPÉ DISCRETO -->
-    <footer>
-        <p>† NANA.RIP †</p>
-    </footer>
-
+  </nav>
+</main>
+<footer>† nana.rip †</footer>
 </body>
 </html>
